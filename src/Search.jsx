@@ -9,10 +9,12 @@ export default function Search(){
             <h3>
                 Search Box
             </h3>
+            <form action="">
          <TextField id="city" label="Enter Your City" variant="outlined" required/>
         <Button variant="contained" type='submit' endIcon={<SendIcon />}>
             Send
         </Button>
+        </form>
 
         </div>
     )
