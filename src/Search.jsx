@@ -9,14 +9,11 @@ export default function Search(){
             <h3>
                 Search Box
             </h3>
-            <Box
-      component="form"
-      sx={{ '& > :not(style)': { m: 1, width: '25ch' } }}
-      noValidate
-      autoComplete="off"
-    >
-      <TextField id="city" label="Enter Your City" variant="outlined" />
-    </Box>
+         <TextField id="city" label="Enter Your City" variant="outlined" required/>
+        <Button variant="contained" type='submit' endIcon={<SendIcon />}>
+            Send
+        </Button>
+
         </div>
     )
 }
