@@ -5,12 +5,20 @@ import { useState } from 'react';
 import "./App.css"
 
 export default function Search(){
-    let [city,setCity] = useState("");
+     let [city,setCity] = useState("");
+    let Api_Url="https://api.openweathermap.org/data/2.5/weather";
+    const key = "99e0bc600368471d50c7e483c0862cdd"
+    let getWInfo = async()=>{
+        let a = await fetch(`${Api_Url}?q=${city}&appid=${key}`);
+        console.log(a);
+    }
+   
     function handelCityChange(event){
         setCity(event.target.value)
     }
     function handleSubmit(event){
         event.preventDefault()
+        getWInfo();
         console.log(city);
         setCity("")
 
