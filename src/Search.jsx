@@ -9,7 +9,8 @@ export default function Search(){
     let Api_Url="https://api.openweathermap.org/data/2.5/weather";
     const key = "99e0bc600368471d50c7e483c0862cdd"
     let getWInfo = async()=>{
-        let a = await fetch(`${Api_Url}?q=${city}&appid=${key}`);
+        let ak = await fetch(`${Api_Url}?q=${city}&appid=${key}`);
+        let a = await ak.json();
         console.log(a);
     }
    
