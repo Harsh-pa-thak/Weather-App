@@ -34,7 +34,7 @@ export default function Search(){
         <Button className='button' variant="contained" type='submit' endIcon={<SendIcon />}>
             Send
         </Button>
-        </form
+        </form>
 
         </div>
     )
