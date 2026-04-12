@@ -9,9 +9,18 @@ export default function Search(){
     let Api_Url="https://api.openweathermap.org/data/2.5/weather";
     const key = "99e0bc600368471d50c7e483c0862cdd"
     let getWInfo = async()=>{
-        let ak = await fetch(`${Api_Url}?q=${city}&appid=${key}`);
+        let ak = await fetch(`${Api_Url}?q=${city}&appid=${key}&units=metric`);
         let a = await ak.json();
-        console.log(a);
+        
+        let wObj = {
+            temp : a.main.temp,
+            tempMax:a.main.temp_max,
+            tempmin:a.main.temp_min,
+            humidity:a.main.humidity,
+            dis : a.weather[0].description,
+        }
+        console.log(wObj);
+
     }
    
     function handelCityChange(event){
