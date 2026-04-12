@@ -1,5 +1,106 @@
+.app-shell {
+  --bg-1: #0f172a;
+  --bg-2: #111827;
+  --glow: rgba(59, 130, 246, 0.35);
+  min-height: 100vh;
+  padding: 2rem 1rem 3rem;
+  background:
+    radial-gradient(circle at 10% 10%, var(--glow), transparent 35%),
+    linear-gradient(135deg, var(--bg-1), var(--bg-2));
+  color: #e5e7eb;
+  transition: background 500ms ease-in-out;
+}
+
+.weather-app {
+  max-width: 920px;
+  margin: 0 auto;
+  background: rgba(15, 23, 42, 0.52);
+  border: 1px solid rgba(148, 163, 184, 0.2);
+  border-radius: 18px;
+  padding: 1.5rem 1rem 2rem;
+  backdrop-filter: blur(6px);
+}
+
 .title {
   text-align: center;
-  font-family: Arial, sans-serif; 
-  margin-top: 2rem;
+  font-family: "Trebuchet MS", "Segoe UI", sans-serif;
+  letter-spacing: 0.08em;
+  margin: 0 0 1.25rem;
+  color: #f8fafc;
+  text-transform: uppercase;
+}
+
+.theme-cool {
+  --bg-1: #0f172a;
+  --bg-2: #164e63;
+  --glow: rgba(56, 189, 248, 0.25);
+}
+
+.theme-warm {
+  --bg-1: #3b1d1f;
+  --bg-2: #7c2d12;
+  --glow: rgba(251, 146, 60, 0.45);
+}
+
+.theme-rain {
+  --bg-1: #0b1f33;
+  --bg-2: #1e3a8a;
+  --glow: rgba(96, 165, 250, 0.3);
+  position: relative;
+  overflow: hidden;
+}
+
+.theme-rain::after {
+  content: "";
+  position: absolute;
+  inset: -120% -30% 0;
+  pointer-events: none;
+  background: repeating-linear-gradient(
+    to bottom,
+    rgba(191, 219, 254, 0.14) 0,
+    rgba(191, 219, 254, 0.14) 2px,
+    transparent 2px,
+    transparent 14px
+  );
+  transform: rotate(16deg);
+  animation: rain-fall 850ms linear infinite;
+}
+
+.theme-snow {
+  --bg-1: #0f172a;
+  --bg-2: #334155;
+  --glow: rgba(186, 230, 253, 0.25);
+  position: relative;
+  overflow: hidden;
+}
+
+.theme-snow::after {
+  content: "";
+  position: absolute;
+  inset: -20% -10%;
+  pointer-events: none;
+  background-image:
+    radial-gradient(circle, rgba(255, 255, 255, 0.75) 2px, transparent 3px),
+    radial-gradient(circle, rgba(255, 255, 255, 0.45) 1.5px, transparent 3px);
+  background-size: 120px 120px, 80px 80px;
+  background-position: 0 0, 20px 30px;
+  animation: snow-fall 10s linear infinite;
+}
+
+@keyframes rain-fall {
+  from {
+    transform: rotate(16deg) translateY(-25%);
+  }
+  to {
+    transform: rotate(16deg) translateY(25%);
+  }
+}
+
+@keyframes snow-fall {
+  from {
+    transform: translateY(-5%);
+  }
+  to {
+    transform: translateY(10%);
+  }
 }
