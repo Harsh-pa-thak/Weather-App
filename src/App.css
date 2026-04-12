@@ -1,15 +1,19 @@
 h3{
   text-align: center;
+  color: #dbeafe;
+  margin: 0.5rem 0 1rem;
+  letter-spacing: 0.03em;
 }
 
 form {
   text-align: center;
   justify-content: center;
   display: flex;
+  flex-wrap: wrap;
   align-items: center;
-  gap: 25px; 
+  gap: 16px;
 }
 
 .textField {
-  color: white;
+  min-width: 260px;
 }
