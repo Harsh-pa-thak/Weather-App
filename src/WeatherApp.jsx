@@ -21,14 +21,29 @@ export default function WeatherApp(){
 
     function getWeatherThemeClass(currentInfo) {
         const description = (currentInfo.dis || "").toLowerCase();
+        const humidity = Number(currentInfo.humidity || 0);
+        const temp = Number(currentInfo.temp || 0);
+        const tempMax = Number(currentInfo.tempMax || 0);
 
-        if (description.includes("snow") || currentInfo.temp <= 5) {
+        const isSnow = description.includes("snow") || temp <= 5 || tempMax <= 6;
+        const isRainByText =
+            description.includes("rain") ||
+            description.includes("drizzle") ||
+            description.includes("thunder") ||
+            description.includes("shower");
+        const isVeryHumid = humidity >= 85 && temp > 5 && temp < 38;
+        const isExtremeHeat = temp >= 38 || tempMax >= 40;
+
+        if (isSnow) {
             return "theme-snow";
         }
-        if (description.includes("rain") || description.includes("drizzle") || description.includes("thunder")) {
+        if (isExtremeHeat) {
+            return "theme-heatwave";
+        }
+        if (isRainByText || isVeryHumid) {
             return "theme-rain";
         }
-        if (currentInfo.temp >= 30) {
+        if (temp >= 30) {
             return "theme-warm";
         }
         return "theme-cool";
