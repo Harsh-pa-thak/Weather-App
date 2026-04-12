@@ -1,9 +1,8 @@
 import Card from '@mui/material/Card';
-
 import CardContent from '@mui/material/CardContent';
 import CardMedia from '@mui/material/CardMedia';
-
 import Typography from '@mui/material/Typography';
+import "./WInfo.css"
 
 
 export default function Weather(){
@@ -15,9 +14,10 @@ export default function Weather(){
         temp:33.6,
         tempMax:35.13,
         tempmin:33.31
-    } 
+    }   
 
     return (
+      <div className='wcard'>
         <div className="weather-info">
             <h2>
                 Weather {info.dis}
@@ -42,6 +42,7 @@ export default function Weather(){
       </CardContent>
       
     </Card>
+        </div>
         </div>
         
     );
