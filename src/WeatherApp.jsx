@@ -15,8 +15,8 @@ export default function WeatherApp(){
         }
     );
 
-    function update (){
-        setInfo(info)
+    function update (obj){
+        setInfo(obj)
     }
 
     return (<>

@@ -11,8 +11,9 @@ export default function Search({sendInfo}){
     let getWInfo = async()=>{
         let ak = await fetch(`${Api_Url}?q=${city}&appid=${key}&units=metric`);
         let a = await ak.json();
-        
+        console.log(a);
         return {
+            city:a.name,
             temp : a.main.temp,
             tempMax:a.main.temp_max,
             tempmin:a.main.temp_min,
@@ -26,14 +27,16 @@ export default function Search({sendInfo}){
     function handelCityChange(event){
         setCity(event.target.value)
     }
-    function handleSubmit(event){
-        event.preventDefault()
-        let obj = getWInfo();
-        console.log(city);
-        sendInfo(obj);
-        setCity("")
+    async function handleSubmit(event) {
+    event.preventDefault();
 
-    }
+    let obj = await getWInfo(city); 
+
+    console.log(obj);
+
+    sendInfo(obj);
+    setCity(""); 
+}
     return (
         <div>
             <h3>

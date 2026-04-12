@@ -27,6 +27,7 @@ export default function Weather({info}){
           <div>Humidity = {info.humidity}</div>
           <div>Min. Temperature = {info.tempmin}&deg; C </div>
           <div>Max. Temperature = {info.tempMax}&deg; C </div>
+          <div>Discription = {info.dis}&deg; C </div>
          
         </Typography>
       </CardContent>
