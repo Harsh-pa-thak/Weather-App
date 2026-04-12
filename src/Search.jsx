@@ -43,8 +43,35 @@ export default function Search({sendInfo}){
                 Search Box
             </h3>
             <form action="" onSubmit={handleSubmit}>
-         <TextField className='textField' id="city" label="Enter Your City" variant="outlined" value={city} onChange={handelCityChange} required/>
-        <Button className='button' variant="contained" type='submit' endIcon={<SendIcon />}>
+         <TextField
+            className='textField'
+            id="city"
+            label="Enter Your City"
+            variant="outlined"
+            value={city}
+            onChange={handelCityChange}
+            required
+            sx={{
+                '& .MuiInputLabel-root': { color: '#bfdbfe' },
+                '& .MuiOutlinedInput-root': {
+                    color: '#e2e8f0',
+                    '& fieldset': { borderColor: 'rgba(147, 197, 253, 0.45)' },
+                    '&:hover fieldset': { borderColor: '#93c5fd' },
+                    '&.Mui-focused fieldset': { borderColor: '#60a5fa' },
+                },
+            }}
+          />
+        <Button
+            className='button'
+            variant="contained"
+            type='submit'
+            endIcon={<SendIcon />}
+            sx={{
+                background: 'linear-gradient(135deg, #2563eb, #0ea5e9)',
+                color: '#eff6ff',
+                '&:hover': { background: 'linear-gradient(135deg, #1d4ed8, #0284c7)' },
+            }}
+        >
             Send
         </Button>
         </form>
