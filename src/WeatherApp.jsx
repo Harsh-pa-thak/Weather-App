@@ -19,9 +19,30 @@ export default function WeatherApp(){
         setInfo(obj)
     }
 
-    return (<>
-   <h1 class="title">Weather App</h1>
-    <Search sendInfo={update}></Search>
-    <Weather info ={info}></Weather>  
-    </>);
+    function getWeatherThemeClass(currentInfo) {
+        const description = (currentInfo.dis || "").toLowerCase();
+
+        if (description.includes("snow") || currentInfo.temp <= 5) {
+            return "theme-snow";
+        }
+        if (description.includes("rain") || description.includes("drizzle") || description.includes("thunder")) {
+            return "theme-rain";
+        }
+        if (currentInfo.temp >= 30) {
+            return "theme-warm";
+        }
+        return "theme-cool";
+    }
+
+    const themeClass = getWeatherThemeClass(info);
+
+    return (
+        <div className={`app-shell ${themeClass}`}>
+            <div className='weather-app'>
+                <h1 className="title">Weather App</h1>
+                <Search sendInfo={update}></Search>
+                <Weather info ={info}></Weather>
+            </div>
+        </div>
+    );
 }
