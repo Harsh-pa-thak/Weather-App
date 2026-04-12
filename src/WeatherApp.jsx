@@ -1,11 +1,27 @@
 import Search  from "./Search"
 import Weather from "./WetherInfo"
 import "./WeatherApp.css"
+import {  useState } from "react";
 export default function WeatherApp(){
+
+    let [info , setInfo ]= useState(
+        {
+        city:"Delhi",
+        dis:"few clouds",
+        humidity:64,
+        temp:33.6,
+        tempMax:35.13,
+        tempmin:33.31
+        }
+    );
+
+    function update (){
+        setInfo(info)
+    }
 
     return (<>
    <h1 class="title">Weather App</h1>
-    <Search></Search>
-    <Weather></Weather>  
+    <Search sendInfo={update}></Search>
+    <Weather info ={info}></Weather>  
     </>);
 }

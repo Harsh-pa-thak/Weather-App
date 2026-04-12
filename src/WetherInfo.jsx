@@ -5,23 +5,13 @@ import Typography from '@mui/material/Typography';
 import "./WInfo.css"
 
 
-export default function Weather(){
+export default function Weather({info}){
     let imageAdd="https://t4.ftcdn.net/jpg/05/13/26/73/360_F_513267391_QEmNGeOFLLqrILTnoq21dReUPp5UsoNr.jpg";
-    let info ={
-        city:"Delhi",
-        dis:"few clouds",
-        humidity:64,
-        temp:33.6,
-        tempMax:35.13,
-        tempmin:33.31
-    }   
+  
 
     return (
       <div className='wcard'>
         <div className="weather-info">
-            <h2>
-                Weather {info.dis}
-            </h2>
              <Card sx={{ maxWidth: 345 }}>
       <CardMedia
         sx={{ height: 140 }}
@@ -30,7 +20,7 @@ export default function Weather(){
       />
       <CardContent>
         <Typography gutterBottom variant="h5" component="div">
-          {info.dis}
+          {info.city}
         </Typography>
         <Typography variant="body2" sx={{ color: 'text.secondary' }}>
           <div>Temperature = {info.temp}&deg; C </div>

@@ -4,7 +4,7 @@ import SendIcon from '@mui/icons-material/Send';
 import { useState } from 'react';
 import "./App.css"
 
-export default function Search(){
+export default function Search({sendInfo}){
      let [city,setCity] = useState("");
     let Api_Url="https://api.openweathermap.org/data/2.5/weather";
     const key = "99e0bc600368471d50c7e483c0862cdd"
@@ -12,14 +12,14 @@ export default function Search(){
         let ak = await fetch(`${Api_Url}?q=${city}&appid=${key}&units=metric`);
         let a = await ak.json();
         
-        let wObj = {
+        return {
             temp : a.main.temp,
             tempMax:a.main.temp_max,
             tempmin:a.main.temp_min,
             humidity:a.main.humidity,
             dis : a.weather[0].description,
         }
-        console.log(wObj);
+        
 
     }
    
@@ -28,8 +28,9 @@ export default function Search(){
     }
     function handleSubmit(event){
         event.preventDefault()
-        getWInfo();
+        let obj = getWInfo();
         console.log(city);
+        sendInfo(obj);
         setCity("")
 
     }
