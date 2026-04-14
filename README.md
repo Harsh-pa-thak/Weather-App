@@ -5,15 +5,11 @@ A modern UI-based weather application that provides real-time weather data for a
 ## Demo Images
 
 <p align="center">
-  <img src="./assets/demo1.png" alt="Demo 1" width="700"/>
+  <img src="./assets /demo1.png" alt="Demo 1" width="700"/>
 </p>
 
 <p align="center">
-  <img src="./assets/demo2.png" alt="Demo 2" width="700"/>
-</p>
-
-<p align="center">
-  <img src="./assets/demo3.png" alt="Demo 3" width="700"/>
+  <img src="./assets /demo2.png" alt="Demo 2" width="700"/>
 </p>
 
 ## Tech Stack
