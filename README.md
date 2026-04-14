@@ -40,4 +40,3 @@ A modern UI-based weather application that provides real-time weather data for a
 - Min / Max temperature
 - Humidity
 - Weather description
-
